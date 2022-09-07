@@ -21,5 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::POST('/contacto',[formularioController::class,'store']);
 Route::get('/contacto', [formularioController::class, 'index']);
+Route::controller(NoticiasController::class) ->group(function(){
+    Route::get('/noticia','index');
+    Route::post('/noticia','store');
+    Route::get('/noticia','update');
+    Route::delete('/noticia','destroy');
+    Route::get('/noticia','show');
+    //Route::patch('/noticia','patch');
+    });
 
 

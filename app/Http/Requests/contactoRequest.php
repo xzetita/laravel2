@@ -13,7 +13,7 @@ class contactoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class contactoRequest extends FormRequest
             //
         'nombre'=> 'required|alpha',
         'apellido'=> 'required|alpha',
-        'telefono'=> 'required|digits_between:7,15|numeric',
+        'telefono'=> 'required|regex:/^\+?[0-9]{7,16}$/',
         'email' => 'required|email:rfc,dns',
         'mensaje'=> 'max:500'
         ];

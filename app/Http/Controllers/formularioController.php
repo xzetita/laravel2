@@ -18,5 +18,9 @@ class formularioController extends Controller
 
     public function store(contactoRequest $request){
      $contacto = contacto::create($request->all());
+     return response()-> json([
+        "estado" => true,
+        "mensaje"=>"Su formulario ha sido enviado, gracias por comunicarte",
+        "contacto"=>$contacto]);
     }
 }

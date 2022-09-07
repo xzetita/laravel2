@@ -32,17 +32,20 @@ class NoticiasController extends Controller
      */
     public function store(noticiaRequest $request){
         $noticia = noticia::create($request->all());
+        return response()-> json([
+            "estado" => true,
+            "mensaje"=>"Su noticia ha sido creada",
+            "noticia"=>$noticia,]);
        /* $validated = $request->validated();
         $noticia -> titulo = $request->titulo;
         $noticia -> descripcion = $request->descripcion;
-        $noticia -> descripcion_portada = $request->descripcion_portada;
-        $noticia->save();
-        //
-        if($noticia->save()){
+        $noticia -> descripcion_portada = $request->descripcion_portada;*/
+        //$noticia->save();
+        /*if($noticia->save()){
             return response()->json(['estado'=>true, 'mensaje'=>'Se agregaron los datos'],201);
         }
-        else return response()->json(['estado'=>true, 'mensaje'=>'No se agregaron los datos']);
-       }*/
+        else return response()->json(['estado'=>true, 'mensaje'=>'No se agregaron los datos']);*/
+       }
         //
 
     /**

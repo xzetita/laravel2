@@ -17,11 +17,4 @@ use App\Http\Controllers\NoticiasController;
 Route::get('/', function () {
     return view('index');
 });
-Route::controller(NoticiasController::class) ->group(function(){
-    Route::get('/noticia','index');
-    Route::POST('/noticia','store');
-    //Route::get('/noticia','update');
-    Route::delete('/noticia','destroy');
-    //Route::get('/noticia','show');
-    Route::patch('/noticia','patch');
-    });
+
