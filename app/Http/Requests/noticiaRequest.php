@@ -27,7 +27,7 @@ class noticiaRequest extends FormRequest
             //
             'noticia'=> 'required|alpha',
            'descripcion'=>'required|alpha',
-         //  'imagen'=> 'mime:jpg', 
+           'imagen'=> 'file:jpg', 
         ];
     }
 }

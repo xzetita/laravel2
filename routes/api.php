@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NoticiasController;
 use App\Http\Controllers\formularioController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ImagenController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,5 +31,13 @@ Route::controller(NoticiasController::class) ->group(function(){
     Route::get('/noticia','show');
     //Route::patch('/noticia','patch');
     });
+    Route::get('/imagen',[imagenController::class , 'index' ] );
+    // guardar
+    Route::post('codeaguardar',[CodeaController::class , 'codeaguardar' ] );    
+    Route::controller(ImagenController::class) ->group(function(){
+        Route::get();
+    });
+       
+    
 
 

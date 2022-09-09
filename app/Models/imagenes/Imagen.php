@@ -11,4 +11,7 @@ class Imagen extends Model
     use HasFactory;
     use SoftDeletes;
     protected $table = "images";
+    public function noticias(){
+        return $this ->HasMany(Imagen::class,"noticias_has_images");
+       }
 }

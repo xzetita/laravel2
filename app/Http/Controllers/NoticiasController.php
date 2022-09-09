@@ -8,6 +8,7 @@ use App\Models\noticias\imagen;
 use App\Models\noticias\CreateNoticia;
 use View;
 use App\Http\Requests\noticiaRequest;
+use Illuminate\Support\Str;
 
 class NoticiasController extends Controller
 {
@@ -31,20 +32,51 @@ class NoticiasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(noticiaRequest $request){
-        $noticia = noticia::create($request->all());
+            $noticia = new noticia();
+            $noticia->noticia = $request->noticia;
+            // script para subir la imagen
+            if($request->hasFile("imagen")){
+    
+                $imagen = $request->file("imagen");
+                $noticiaimagen = Str::slug($request->noticia).".".$imagen->guessExtension();
+                $ruta = public_path("img/noticia/");
+    
+                //$imagen->move($ruta,$noticiaimagen);
+                copy($imagen->getRealPath(),$ruta.$noticiaimagen);
+    
+                $noticia->imagenes = $noticiaimagen;            
+                
+            }
+           if ($noticia->save()) {
         return response()-> json([
             "estado" => true,
-            "mensaje"=>"Su noticia ha sido creada",
+                     "mensaje"=>"Su noticia ha sido creada",
             "noticia"=>$noticia,]);
-       /* $validated = $request->validated();
-        $noticia -> titulo = $request->titulo;
-        $noticia -> descripcion = $request->descripcion;
-        $noticia -> descripcion_portada = $request->descripcion_portada;*/
-        //$noticia->save();
-        /*if($noticia->save()){
-            return response()->json(['estado'=>true, 'mensaje'=>'Se agregaron los datos'],201);
         }
-        else return response()->json(['estado'=>true, 'mensaje'=>'No se agregaron los datos']);*/
+            else {
+                 return response()-> json([
+                    "estado" => false,
+                    "mensaje"=>"Su noticia no fue creada",
+                    "noticia"=>$noticia,]);
+            }
+         /*   public function codeaguardar(Request $request){
+                $noticia = new noticia();
+                $noticia->nombre = $request->nombre;
+                // script para subir la imagen
+                if($request->hasFile("imagen")){
+        
+                    $imagen = $request->file("imagen");
+                    $nombreimagen = Str::slug($request->nombre).".".$imagen->guessExtension();
+                    $ruta = public_path("img/noticia/");
+        
+                    //$imagen->move($ruta,$nombreimagen);
+                    copy($imagen->getRealPath(),$ruta.$nombreimagen);
+        
+                    $noticia->imagen = $nombreimagen;            
+                    
+                }
+                $noticia->save();
+       */
        }
         //
 
