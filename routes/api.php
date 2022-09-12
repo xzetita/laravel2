@@ -33,10 +33,10 @@ Route::controller(NoticiasController::class) ->group(function(){
     });
     Route::get('/imagen',[imagenController::class , 'index' ] );
     // guardar
-    Route::post('codeaguardar',[CodeaController::class , 'codeaguardar' ] );    
-    Route::controller(ImagenController::class) ->group(function(){
-        Route::get();
-    });
+   // Route::post('codeaguardar',[CodeaController::class , 'codeaguardar' ] );    
+   // Route::controller(ImagenController::class) ->group(function(){
+        //Route::get();
+    //});
        
     
 

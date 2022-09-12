@@ -15,6 +15,6 @@ use App\Http\Controllers\NoticiasController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('noticias.index');
 });
 

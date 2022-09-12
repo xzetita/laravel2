@@ -12,8 +12,15 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
-        //
+    {   
+        Schema::create('image_noticia', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('noticia_id');  
+        $table->foreign('noticia_id')->references('id')->on('noticias')->onDelete('cascade');
+        $table->unsignedBigInteger('image_id')->nullable();  
+        $table->foreign('image_id')->references('id')->on('images')->onDelete('set null');
+    
+        });   
     }
 
     /**
@@ -23,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('image_noticia');
     }
 };

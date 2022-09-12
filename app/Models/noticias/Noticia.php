@@ -18,6 +18,6 @@ class noticia extends Model
         return $this ->belongsToMany(User::class,"users");
        }
     public function imagenes(){
-    return $this ->HasMany(Imagen::class,"noticias_has_images");
+    return $this ->HasMany(Imagen::class,"image_noticia");
    }
 }

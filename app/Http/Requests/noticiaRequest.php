@@ -25,9 +25,9 @@ class noticiaRequest extends FormRequest
     {
         return [
             //
-            'noticia'=> 'required|alpha',
+           /* 'titulo'=> 'required|alpha',
            'descripcion'=>'required|alpha',
-           'imagen'=> 'file:jpg', 
+           'imagen'=> 'file:jpg', */
         ];
     }
 }

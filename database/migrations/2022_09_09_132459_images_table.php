@@ -12,9 +12,18 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
+        Schema::create('images', function (Blueprint $table) {
+
+            $table->id('id');
+            $table->text('url');
+            $table->string('nombre');
+            $table->string('alt');
+
+            $table->timestamps();
         //
-    }
+    });
+}
 
     /**
      * Reverse the migrations.
@@ -23,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('images');
     }
 };

@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class NoticiasImagenes extends Model
 {
     use HasFactory;
-    protected $table= 'noticias_has_images';
+    protected $table= 'image_noticia';
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\noticias\noticia;
-use App\Models\noticias\imagen;
+use App\Models\imagenes\imagen;
 use App\Models\noticias\CreateNoticia;
 use View;
 use App\Http\Requests\noticiaRequest;

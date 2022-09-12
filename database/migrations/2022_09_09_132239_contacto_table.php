@@ -14,7 +14,18 @@ return new class extends Migration
     public function up()
     {
         //
-    }
+        Schema::create('contacto', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('nombre');
+            $table->string('email')->unique();
+            $table->string('telefono');//->nullable()
+            $table->string('apellido');
+            $table->string('mensaje');
+
+            $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.
@@ -23,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('contacto');
     }
 };
