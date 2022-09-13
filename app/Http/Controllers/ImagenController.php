@@ -23,8 +23,8 @@ class ImagenController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(noticiaRequest $request){
+        storage::put('imagen',$request->file('file'));
         //
     }
 

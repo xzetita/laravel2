@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class noticiaRequest extends FormRequest
+class imagenRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class noticiaRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -25,9 +25,6 @@ class noticiaRequest extends FormRequest
     {
         return [
             //
-            'titulo'=> 'required|alpha',
-           'descripcion'=>'required|alpha',
-           'imagen'=> 'image', 
         ];
     }
 }

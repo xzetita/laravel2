@@ -9,13 +9,14 @@ use App\Models\noticias\CreateNoticia;
 use View;
 use App\Http\Requests\noticiaRequest;
 use Illuminate\Support\Str;
+use Storage;
 
 class NoticiasController extends Controller
 {
 
     public function index()
     {
-        $noticia = noticia::all();
+        $noticia = noticia::all()->latest('id');
         return response()->json($noticia);
     }
 
@@ -32,7 +33,22 @@ class NoticiasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(noticiaRequest $request){
-            $noticia = new noticia();
+
+        $noticia = Noticia::create($request->all());
+        if($request->file('file')){
+            $url = Storage::put('noticias',$request->file('file'));
+            $noticia->image()->create([
+                'url' => $url
+            ]);
+
+
+
+
+
+
+
+
+           /* $noticia = new noticia();
             $noticia->noticia = $request->noticia;
             // script para subir la imagen
             if($request->hasFile("imagen")){
@@ -78,6 +94,7 @@ class NoticiasController extends Controller
                 $noticia->save();
        */
        }
+    }
         //
 
     /**
@@ -86,9 +103,12 @@ class NoticiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Noticia $noticia)
     {
-        //
+        $similares = Noticia::where('estado',2)
+                            ->latest('id')
+                            ->where('id','!=',$post);
+            return $noticia;
     }
 
     /**

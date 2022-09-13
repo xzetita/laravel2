@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('url');
             $table->string('nombre');
             $table->string('alt');
+            $table->tinyInterger('estado',[1,2]);
 
             $table->timestamps();
         //

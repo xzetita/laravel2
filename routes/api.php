@@ -28,7 +28,7 @@ Route::controller(NoticiasController::class) ->group(function(){
     Route::post('/noticia','store');
     Route::get('/noticia','update');
     Route::delete('/noticia','destroy');
-    Route::get('/noticia','show');
+    Route::get('/noticia/{noticia}','show')->name('noticias.show');
     //Route::patch('/noticia','patch');
     });
     Route::get('/imagen',[imagenController::class , 'index' ] );

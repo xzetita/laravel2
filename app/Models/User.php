@@ -45,5 +45,8 @@ class User extends Authenticatable
     public function noticias(){
         return $this ->HasMany(Noticias::class,'noticias'); 
     }
+    public function imagen(){
+        return $this->HasMany (Imagen::class,'imagen');
+    }
 }
 
