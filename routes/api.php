@@ -38,6 +38,33 @@ Route::controller(NoticiasController::class) ->group(function(){
         //Route::get();
     //});
        
+    /* 
+    route::get('/my-second-example-laravel-9, function (){
+echo 'hola';
+
+    })->name('myindex');
+    
+    GRUPOS:
+    Route::prefix('/post')->name('category.')->group(function(){
+    Route::get('/{primera}')
+    })
+
+    MIDDLEWARES:
+    $result = $next($request);
+    return $result;
+
+    O
+
+    if (1 == 1)
+    return $next $request
+
+
+    $HaveIdParamInGet = $request->input('id');
+    $user = Auth::user();
+    if(Auth::check() && Auth::id() == 1 && $user->id_role == 2)
+    return $next($request);
+    return response (null,403);
+    */
     
 
 
